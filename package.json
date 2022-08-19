@@ -1,0 +1,21 @@
+{
+  "name": "nodeJSbasics",
+  "version": "1.0.0",
+  "description": "basics of NodeJS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nechir-89/nodeJSbasics.git"
+  },
+  "keywords": [],
+  "author": "Neck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nechir-89/nodeJSbasics/issues"
+  },
+  "homepage": "https://github.com/Nechir-89/nodeJSbasics#readme"
+}
