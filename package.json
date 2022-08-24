@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Nechir-89/nodeJSbasics/issues"
   },
-  "homepage": "https://github.com/Nechir-89/nodeJSbasics#readme"
+  "homepage": "https://github.com/Nechir-89/nodeJSbasics#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
