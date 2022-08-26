@@ -1,5 +1,16 @@
+
+
 console.log("nodejs is working with typescript");
+
+// const foo: string = "food";
+// module.exports = foo;
 // console.log(global);
+// console.log(this);
+
+const a = setTimeout(() => {
+  console.log(global)
+}, 1000);
+
 
 // import { type, version, homedir, totalmem } from 'os'
 // import {dirname, basename, extname} from 'path'
