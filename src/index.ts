@@ -1,32 +1,47 @@
+import {
+  arch,
+  cpus,
+  totalmem,
+  freemem,
+  type,
+  homedir,
+  hostname,
+  platform
+} from 'os';
+
+// import { arch, platform } from 'process';
+
+// const arch = os.arch()
 
 
-console.log("nodejs is working with typescript");
+console.log("\nServer OS Information");
+console.log("-----------------------");
+console.log(`- OS architecture: ${arch}`);
+OS_CPUs();
+console.log(`\n- OS type: ${type()}`);
+console.log(`- User's home directory: ${homedir()}`);
+console.log(`- OS host name: ${hostname()}`);
+console.log(`- OS platform: ${platform()}`);
 
-// const foo: string = "food";
-// module.exports = foo;
-// console.log(global);
-// console.log(this);
-
-const a = setTimeout(() => {
-  console.log(global)
-}, 1000);
-
-
-// import { type, version, homedir, totalmem } from 'os'
-// import {dirname, basename, extname} from 'path'
-// import os from 'os';
-// import path
+console.log(`\n- System memory: ${(totalmem() / 1024) / 1024} MBs`);
+console.log(`- Free memory: ${(freemem() / 1024) / 1024} MBs`);
+console.log(`- Used memory: ${((totalmem() - freemem()) / 1024) / 1024} MBs`);
 
 
-// console.log(type());
-// console.log(version());
-// console.log(homedir());
-// console.log(totalmem());
 
-// console.log(__dirname);
-// console.log(__filename);
 
-// console.log(dirname(__filename));
-// console.log(basename(__filename));
-// console.log(extname(__filename));
+function OS_CPUs() {
+  console.log(`- CPUs:`);
 
+  cpus().forEach((cpu, index) => {
+    console.log(`\tCPU ${index}:`)
+    console.log(`\tCPU Model: ${cpu.model}`);
+    console.log(`\tCPU Speed: ${cpu.speed}`);
+    console.log(`\tCPU Times:`);
+    console.log(`\t\tuser: ${cpu.times.user}`);
+    console.log(`\t\tnice: ${cpu.times.nice}`);
+    console.log(`\t\tsys: ${cpu.times.sys}`);
+    console.log(`\t\tidle: ${cpu.times.idle}`);
+    console.log(`\t\tirq: ${cpu.times.irq}`);
+  });
+}
