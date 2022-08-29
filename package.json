@@ -2,9 +2,9 @@
   "name": "nodejsbasics",
   "version": "1.0.0",
   "description": "basics of NodeJS",
-  "main": "src/index.ts",
+  "main": "./src/index.ts",
   "scripts": {
-    "dev": "nodemon ./src/index.ts"
+    "dev": "nodemon ./src/Apps/DisplayServerInformation/index.ts"
   },
   "repository": {
     "type": "git",
