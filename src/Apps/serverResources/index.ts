@@ -6,7 +6,9 @@ import {
   type,
   homedir,
   hostname,
-  platform
+  platform,
+  version,
+  release
 } from 'os';
 
 // import { arch, platform } from 'process';
@@ -22,6 +24,8 @@ console.log(`\n- OS type: ${type()}`);
 console.log(`- User's home directory: ${homedir()}`);
 console.log(`- OS host name: ${hostname()}`);
 console.log(`- OS platform: ${platform()}`);
+console.log(`- OS version: ${version()}`);
+console.log(`- OS release: ${release()}`);
 
 console.log(`\n- System memory: ${(totalmem() / 1024) / 1024} MBs`);
 console.log(`- Free memory: ${(freemem() / 1024) / 1024} MBs`);
