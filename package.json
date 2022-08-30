@@ -4,7 +4,7 @@
   "description": "basics of NodeJS",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "nodemon ./src/Apps/DisplayServerInformation/index.ts"
+    "dev": "nodemon ./src/Apps/serverResources/index.ts"
   },
   "repository": {
     "type": "git",
