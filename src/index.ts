@@ -1,0 +1,1 @@
+// list applications and let user choose an application to run
