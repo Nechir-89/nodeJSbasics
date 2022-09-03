@@ -1,3 +1,5 @@
+// display server information in console
+
 import {
   arch,
   cpus,
