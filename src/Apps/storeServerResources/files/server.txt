@@ -1,1 +1,12 @@
 Server and OS information
+--------------------------
+OS architecture:        x64
+OS type:                Windows_NT
+User's home directory:  C:\Users\Nechir
+OS host name:           Neck
+OS platform:            win32
+OS version:             Windows 10 Pro
+OS release:             10.0.19044
+System memory:          4008.66796875 MBs
+Free memory:            895.1875 MBs
+Used memory:            3188204 MBs

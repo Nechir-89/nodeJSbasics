@@ -1,50 +1,68 @@
+// TODO:
+// - add cpus
+// - 
+
+
 // store server information in text file
-// import {
-//   arch,
-//   cpus,
-//   totalmem,
-//   freemem,
-//   type,
-//   homedir,
-//   hostname,
-//   platform,
-//   version,
-//   release
-// } from 'os';
+import {
+  arch,
+  cpus,
+  totalmem,
+  freemem,
+  type,
+  homedir,
+  hostname,
+  platform,
+  version,
+  release
+} from 'os';
 // import { writeFile } from 'fs';
+// import { stat, access, constants } from 'fs'
 import { join } from 'path';
 import { writeFile } from 'fs/promises'
-
-let data = "Server and OS information Asynch";
 let filePath = join(__dirname, 'files', 'server.txt');
 
-try{
-  let writingPromise = writeFile(filePath, data)
-  await writingPromise;
-}catch(err){
-  console.log(err);
-  
-}
+let data = `Server and OS information
+--------------------------
+OS architecture:        ${arch()}
+OS type:                ${type()}
+User's home directory:  ${homedir()}
+OS host name:           ${hostname()}
+OS platform:            ${platform()}
+OS version:             ${version()}
+OS release:             ${release()}
+System memory:          ${(totalmem() / 1024) / 1024} MBs
+Free memory:            ${(freemem() / 1024) / 1024} MBs
+Used memory:            ${((totalmem() - freemem()) / 1024)} MBs
+`;
+
+async function writeToFile() {
+  try {
+    await writeFile(filePath, data);
+    console.log(`Data stored in file: ${filePath}`)
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+writeToFile();
+
+// access(filePath, constants.F_OK, (err) => {
+//   console.log(constants.F_OK)
+//   console.log(`File ${filePath} ${err ? "doesn't" : "does"} exist`)
+// })
+
+// stat(filePath, (err, stats) => {
+//   if (err) {
+//     console.log(err.message);
+//     writeToFile();
+//   } else {
+//     // we may want to append to the file
+//   }
+// })
 
 
-
-// console.log("\nServer OS Information");
-// console.log("-----------------------");
-// console.log(`- OS architecture: ${arch}`);
 // OS_CPUs();
-// console.log(`\n- OS type: ${type()}`);
-// console.log(`- User's home directory: ${homedir()}`);
-// console.log(`- OS host name: ${hostname()}`);
-// console.log(`- OS platform: ${platform()}`);
-// console.log(`- OS version: ${version()}`);
-// console.log(`- OS release: ${release()}`);
-
-// console.log(`\n- System memory: ${(totalmem() / 1024) / 1024} MBs`);
-// console.log(`- Free memory: ${(freemem() / 1024) / 1024} MBs`);
-// console.log(`- Used memory: ${((totalmem() - freemem()) / 1024) / 1024} MBs`);
-
-
-
 
 // function OS_CPUs() {
 //   console.log(`- CPUs:`);
