@@ -1,8 +1,3 @@
-// TODO:
-// - add cpus
-// - 
-
-
 // store server information in text file
 import {
   arch,
@@ -17,9 +12,9 @@ import {
   release
 } from 'os';
 // import { writeFile } from 'fs';
-// import { stat, access, constants } from 'fs'
+import { stat, access, constants } from 'fs'
 import { join } from 'path';
-import { writeFile } from 'fs/promises'
+import { writeFile } from 'fs/promises';
 let filePath = join(__dirname, 'files', 'server.txt');
 
 let data = `Server and OS information
@@ -34,6 +29,7 @@ OS release:             ${release()}
 System memory:          ${(totalmem() / 1024) / 1024} MBs
 Free memory:            ${(freemem() / 1024) / 1024} MBs
 Used memory:            ${((totalmem() - freemem()) / 1024)} MBs
+CPUs:                   ${OS_CPUs()}
 `;
 
 async function writeToFile() {
@@ -55,27 +51,34 @@ writeToFile();
 // stat(filePath, (err, stats) => {
 //   if (err) {
 //     console.log(err.message);
-//     writeToFile();
+//     // writeToFile();
 //   } else {
 //     // we may want to append to the file
+//     console.log(stats.birthtime);
+//     console.log(stats.atime);
+//     console.log(stats.blksize);
+//     console.log(stats.blocks);
+//     console.log(stats.dev);
+//     console.log(stats.isDirectory());
+//     console.log(stats.isFile());
 //   }
-// })
+// });
 
 
 // OS_CPUs();
 
-// function OS_CPUs() {
-//   console.log(`- CPUs:`);
-
-//   cpus().forEach((cpu, index) => {
-//     console.log(`\tCPU ${index}:`)
-//     console.log(`\tCPU Model: ${cpu.model}`);
-//     console.log(`\tCPU Speed: ${cpu.speed}`);
-//     console.log(`\tCPU Times:`);
-//     console.log(`\t\tuser: ${cpu.times.user}`);
-//     console.log(`\t\tnice: ${cpu.times.nice}`);
-//     console.log(`\t\tsys: ${cpu.times.sys}`);
-//     console.log(`\t\tidle: ${cpu.times.idle}`);
-//     console.log(`\t\tirq: ${cpu.times.irq}`);
-//   });
-// }
+function OS_CPUs() {
+  let cpusData = "";
+  cpus().forEach((cpu, index) => {
+    cpusData = cpusData.concat(`\n\tCPU ${index}:`)
+      .concat(`\n\tModel: ${cpu.model}`)
+      .concat(`\n\tSpeed: ${cpu.speed}`)
+      .concat(`\n\tTimes:`)
+      .concat(`\n\t\tuser: ${cpu.times.user}`)
+      .concat(`\n\t\tnice: ${cpu.times.nice}`)
+      .concat(`\n\t\tsys: ${cpu.times.sys}`)
+      .concat(`\n\t\tidle: ${cpu.times.idle}`)
+      .concat(`\n\t\tirq: ${cpu.times.irq}`);
+  });
+  return cpusData;
+}

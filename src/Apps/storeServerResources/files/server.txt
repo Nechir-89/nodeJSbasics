@@ -8,5 +8,24 @@ OS platform:            win32
 OS version:             Windows 10 Pro
 OS release:             10.0.19044
 System memory:          4008.66796875 MBs
-Free memory:            895.1875 MBs
-Used memory:            3188204 MBs
+Free memory:            847.9375 MBs
+Used memory:            3236588 MBs
+CPUs:                   
+	CPU 0:
+	Model: Intel(R) Celeron(R) CPU B800 @ 1.50GHz
+	Speed: 1497
+	Times:
+		user: 43878531
+		nice: 0
+		sys: 29265609
+		idle: 182846656
+		irq: 1132375
+	CPU 1:
+	Model: Intel(R) Celeron(R) CPU B800 @ 1.50GHz
+	Speed: 1497
+	Times:
+		user: 47175359
+		nice: 0
+		sys: 26000281
+		idle: 182814750
+		irq: 431437
