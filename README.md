@@ -1,5 +1,5 @@
-# nodeJSbasics
-This repository is a banch of applications with Node.js, all applications are made for backend of web applications.
+# Projects in Node.JS
+This repository is a collection of applications with Node.js, all applications are made for backend of web applications.
 
 ### Apps
 - display server and operating system information in console.
